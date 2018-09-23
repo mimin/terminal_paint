@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+class Canvas:
+    def __init__(self, WIDTH, HEIGHT, BORDER, AREA_CHAR):
+        self.width = WIDTH
+        self.height = HEIGHT
+        self.border = BORDER
+        self.area = AREA_CHAR
+        self.grid = [[False for col in range(self.width)] for row in range(self.height)]
+
+# CANVAS FUNCTIONS
+def genCanvas(WIDTH, HEIGHT):
+    # generate canvas
+    return [[False for col in range(WIDTH)] for row in range(HEIGHT)]
+
+def disCanvas(GRID, ON_CHAR, OFF_CHAR):
+    # display canvas
+    boundary = "+"
+    print("+" * (len(GRID[0]) + 2)) # prints top boundry
+    for row in GRID:
+        print(boundary, end="") # prints left boundary
+        for col in row:
+            if col == True:
+                print(ON_CHAR, end="")
+            else:
+                print(OFF_CHAR, end="")
+        print(boundary) # prints right boundary
+    print("+" * (len(GRID[0]) + 2)) # prints top boundry
